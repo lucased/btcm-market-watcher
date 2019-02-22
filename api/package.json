@@ -1,0 +1,18 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "micro-dev -p 4000",
+    "start": "micro -p 4000"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "micro": "^9.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "micro-dev": "^3.0.0"
+  }
+}
