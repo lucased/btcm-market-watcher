@@ -117,7 +117,6 @@ module.exports = async (req, res) => {
   switch (req.url) {
     case "/api/markets":
       try {
-
         if (process.env.NODE_ENV === "development") {
           return send(res, data);
         }
@@ -130,7 +129,6 @@ module.exports = async (req, res) => {
           })
         );
         send(res, results);
-        
       } catch (error) {
         console.log(error);
       }
@@ -154,11 +152,26 @@ const getMarket = async (instrument, currency) => {
     const historicTickDay = await axios(`${API}/v2/market/${instrument}/${currency}/tickByTime/day?since=${new Date().getTime()}&limit=30`);
 
     const { ticks } = historicTickDay.data;
-    const price24hour = ticks.length && ticks[1].close / 100000000;
-    const price7day = ticks.length && ticks[6].close / 100000000;
-    const price30day = ticks.length && ticks[ticks.length - 1].close / 100000000;
+
+    const price24hour = isElement(ticks, 1) ? ticks[1].close / 100000000 : 0;
+    const price7day = isElement(ticks, 6) ? ticks[6].close / 100000000 : 0;
+    const price30day = isElement(ticks, 0) ? ticks[ticks.length - 1].close / 100000000 : 0;
     return { ...tick.data, price24hour, price7day, price30day };
   } catch (error) {
     console.log(error);
   }
+};
+
+// HELPERS
+const isElement = (element, index) => {
+  if(typeof element === "undefined") {
+    return false
+  }
+  if(!element.length ) {
+    return false
+  }
+  if(typeof element[index] === "undefined") {
+    return false
+  }
+  return true;
 };

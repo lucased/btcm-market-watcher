@@ -5,8 +5,10 @@ import ETH from "./ETH";
 import ETC from "./ETC";
 import XRP from "./XRP";
 import POWR from "./POWR";
-import OMG from "./OMG";
+import OMG from "./BAT";
 import BCH from "./BCHABC";
+import BAT from "./OMG";
+import GNT from "./GNT";
 
 export default ({ name }) => {
   switch (name) {
@@ -28,6 +30,10 @@ export default ({ name }) => {
       return <BCH />;
     case "BCHSV":
       return <BCH />;
+    case "BAT":
+      return <BAT />;
+    case "GNT":
+      return <GNT />;
     default:
       return <BTC />;
   }

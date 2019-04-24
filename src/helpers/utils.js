@@ -7,7 +7,9 @@ const instrumentToName = {
   OMG: "OmiseGO",
   POWR: "Power Ledger",
   BCHABC: "BCHABC",
-  BCHSV: "BCHSV"
+  BCHSV: "BCHSV",
+  BAT: "Basic Attention Token",
+  GNT: "Golem"
 };
 
 export { instrumentToName };

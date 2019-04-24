@@ -133,7 +133,7 @@ export default props => {
           <LastPricePercent>
             <ColorText price={toFixed(percentDailyChange, 2)}>{toFixed(percentDailyChange, 2)}%</ColorText>
           </LastPricePercent>
-          <Graph />
+          {/* <Graph /> */}
         </Row>
         <Row justify="space-between">
           <StatContainer width={20}>

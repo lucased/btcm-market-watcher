@@ -60,7 +60,7 @@ const darkTheme = {
 };
 
 const Container = styled.div`
-  width: 1400px;
+  width: 90vw;
   height: 100vh;
   margin: auto;
 `;
